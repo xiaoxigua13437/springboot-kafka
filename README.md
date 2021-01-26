@@ -52,3 +52,19 @@
     │    └──UserSerializable       //用户序列化测试类
     │
     │──ProducerApplication        //项目启动类
+
+
+
+
+
+
+
+
+
+"# springboot-kafka-producer" 
+
+
+
+
+
+
