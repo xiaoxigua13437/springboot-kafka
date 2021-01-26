@@ -1,0 +1,60 @@
+server:
+  port: 8095
+
+spring:
+
+  datasource:
+    username: root
+    password: yushu@13437
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.170.15.29:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+
+  kafka:
+    bootstrap-servers: 192.170.15.29:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # 重试次数
+      retries: 0
+      # 批量发送的消息数量
+      batch-size: 16384
+      # 32MB的批处理缓冲区
+      buffer-memory: 33554432
+      acks: 1
+    consumer:
+      # 默认消费者组
+      group-id: default_consumer_group
+      # 自动提交
+      enable-auto-commit: false
+      max-poll-records: 1000
+      auto-commit-interval: 1S
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # 最早未被消费的offset(消息可以重传但绝不丢失)
+      auto-offset-reset: earliest
+
+    listener:
+      concurrency: 5
+      # 监听模式下的立即自动应答模式
+      ack-mode: manual_immediate
+      missing-topics-fatal: false
+  #配置redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 8
+    password:
+    timeout: 5000
+
+#mybatis:
+#  mapper-locations: classpath:mappings/*Mapper.xml
+#  type-aliases-package: com.sp.producer.entity
+
+
+
+
+
+
+
+
+
