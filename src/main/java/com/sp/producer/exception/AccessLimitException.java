@@ -6,7 +6,7 @@ package com.sp.producer.exception;
  * 自定义异常类
  *
  * @author yushu.zhao
- * @create 2020-12-17 09:46
+ * @create 2020-12-17 09:47
  */
 public class AccessLimitException extends Exception{
 
